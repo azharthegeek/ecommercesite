@@ -1,0 +1,71 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.cart-summary{
+  margin-top: 40px;
+  width: 25%;
+  padding: 0 0 0 20px;
+}
+.summary{
+  background: "#ffff";
+  padding: 13px;
+  margin-top: 60px;
+}
+.summary h3{
+  font-size: 18px;
+  font-weight: normal;
+  border-bottom: 1px solid #999;
+}
+.total-items{
+  display: flex;
+  margin:15px 0;
+}
+.item{
+  width: 50%;
+  text-align: left;
+  font-weight: normal;
+}
+.item-count{
+  width: 30%;
+  text-align: right;
+  font-weight: bold;
+  color: rgb(228, 155, 21);
+}
+.total-price-section{
+  display: flex;
+  margin: 15px 0;
+}
+.title{
+  width: 50%;
+  text-align: left;
+  font-weight: normal;
+
+}
+.items-price{
+  width: 40%;
+  text-align: right;
+  color: rgb(228, 155, 21);
+  font-weight: bold;
+  
+
+}
+.checked:hover{
+  background-color: "pink";
+}
