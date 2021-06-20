@@ -39,7 +39,7 @@ const Card=()=>{
                 <div class="col-lg-3 col-md-6 mb-4">
 
         {/* <!--Card--> */}
-        <div class="card" style={{cursor:"pointer"}} onClick={()=> handleParams(data)}>
+        <div class="card" style={{cursor:"pointer",maxWidth:"300px",height:"350px"}} onClick={()=> handleParams(data)}>
 
             {/* <!--Card image--> */}
             <div class="view overlay">
@@ -58,7 +58,7 @@ const Card=()=>{
                 </a>
                 <h5>
                     <strong>
-    <a href="#"class="dark-grey-text">{data.name}      <span class=" ml-2 badge badge-pill danger-color" style={{backgroundColor:"red",color:"#fff",padding:"6px"}}>NEW</span>
+    <a href="#"class="dark-grey-text" style={{fontSize:"14px"}}>{data.name}     
     </a>
   </strong>
                 </h5>

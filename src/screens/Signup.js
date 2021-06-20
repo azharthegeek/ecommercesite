@@ -71,22 +71,14 @@ const Signup=()=>{
 <div style={{ backgroundColor: "#FAFAFA", width: "350px", height: "500px", display: "flex", flexDirection: "column" }}>
     <Paper variant="outlined" square elevation={20} >
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "13px" }}>
-            <div style={{ fontFamily: "'Grand Hotel', cursive", color: "#262626", letterSpacing: "1px", fontSize: "40px", fontWeight: "500",color:"#2196F3" }}>TechShoor Store</div>
+            <div style={{ fontFamily: "'Grand Hotel', cursive", color: "#262626", letterSpacing: "1px", fontSize: "40px", fontWeight: "500",color:"#2196F3"  }}>TechShoor Store</div>
         </div>
         <div style={{ textAlign: "center", marginTop: "5px" }}>
             <div style={{ color: "#8E8E8E", fontWeight: "700", fontSize: "16px" }}>Sign up to see products and</div>
             <div style={{ color: "#8E8E8E", fontWeight: "700", fontSize: "16px" }}> share with your friends</div>
         </div>
         <div style={{ textAlign: "center", marginTop: "8px" }}>
-            <Button variant="contained" style={{ backgroundColor: "#0095F6", color: "#fff", fontWeight: "600" }}>
-                <span style={{ fontSize: "14px", textTransform: "capitalize" }}>Log in with Facebook</span>
-            </Button>
-        </div>
-        <div style={{ textAlign: "center", color: "gray", marginTop: "10px" }}>
-            <span >  _____________  </span>
-            <span >OR</span>
-            <span >   _____________  </span>
-
+           
         </div>
         <div style={{ textAlign: "center", padding: "17px 48px" }}>
             <Form >
@@ -154,10 +146,7 @@ const Signup=()=>{
                 <span style={{ fontSize: "14px", textTransform: "capitalize" }} onClick={postData}>Signup</span>
             </Button>
         </div>
-        <div style={{ textAlign: "center", marginTop: "7px" }}>
-            <div style={{ color: "#8E8E8E", fontSize: "12px" }}>By signing up, you agree to our,<b>Terms</b> , <b>Data</b></div>
-            <div style={{ color: "#8E8E8E", fontSize: "11px" }}><b>Policy </b> and <b>Cookies Policy </b></div>
-        </div>
+        
 
     </Paper>
     <div >
@@ -170,13 +159,7 @@ const Signup=()=>{
                 </div>
             </div>
         </Paper>
-        <div >
-            <div style={{ textAlign: "center", marginTop: "5px", fontWeight: "500" }}>Get  the app</div>
-            <div style={{ display: "flex", justifyContent: "center", marginTop: "8px" }}>
-                <div ><img style={{ marginRight: "5px" }} width="150" src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/180ae7a0bcf7.png" /></div>
-                <div><img width="150" src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_english-en.png/e9cd846dc748.png" /></div>
-            </div>
-        </div>
+       
 
         {
                         message ?  <Snackbar  open={succ} autoHideDuration={6000} >

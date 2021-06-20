@@ -1,30 +1,73 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Menu from '../component/Menu';
+import {Paypal} from '../component/Paypal'
 import Footer from '../component/Footer';
 import { CardContext } from '../context/CardContext';
+import { useHistory } from 'react-router-dom';
+
+
+
+
+
 
 
 
 const Checkout=()=>{
+    let history=useHistory()
     let user=JSON.parse(localStorage.getItem("User"))
-    const {shoppingCart , qty , totalPrice }=useContext(CardContext)
+    const {shoppingCart , qty , totalPrice ,dispatch }=useContext(CardContext)
+  
+    // console.log(dispatch)
+   let [debit,setDebit]=useState(false)
+   let [cash,setCash]=useState(false)
+   let [Loader,setLoader]=useState(false)
+
+   const createOrder = (data, actions) =>{
+    return actions.order.create({
+      purchase_units: [
+        {
+          amount: {
+            value: "0.01",
+          },
+        },
+      ],
+    });
+  };
+
+const onApprove=(data,actions)=>{
+    return actions.order.capture();
+
+}
+   
     const placeOrder=(e)=>{
+
         e.preventDefault()
         fetch('http://localhost:5000/order',{
             method:"Post",
             headers:{
                 "Content-Type":"application/json",
-                "Authorization":`Bearer ${localStorage.getItem("jwt")}`
+                "Authorization":`Bearer Rs{localStorage.getItem("jwt")}`
             },
             body:JSON.stringify({
                 shoppingCart
 
             })
         }).then(res=>res.json())
-        .then(arham => console.log(arham))
+        .then(arham => {console.log(arham)
+        setLoader(true)
+        })
         .catch(err=> console.log(err))
-
+        dispatch({type:"ORDERDONE"})
+        
+        
+        history.push('/order/success')        
+        
     }
+   
+      
+
+    
+   
     
     return(
         <>
@@ -66,25 +109,25 @@ const Checkout=()=>{
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">@</span>
                                 </div>
-                                <input type="text" class="form-control py-0" placeholder="Username" aria-describedby="basic-addon1" value={user.name} />
+                                <input type="text" style={{fontSize:"14px"}} class="form-control py-0" placeholder="Username" aria-describedby="basic-addon1" value={user.name} />
                             </div>
 
                             {/* <!--email--> */}
                             <div class="md-form mb-5">
                                 <label for="email" class="">Email (optional)</label>
-                                <input type="text" id="email" class="form-control" placeholder="youremail@example.com" value={user.email} />
+                                <input type="text" id="email" class="form-control" style={{fontSize:"14px"}} placeholder="youremail@example.com" value={user.email} />
                             </div>
 
                             {/* <!--address--> */}
                             <div class="md-form mb-5">
                                 <label for="address" class="">Address</label>
-                                <input type="text" id="address" class="form-control" placeholder="1234 Main St" value={user.address} />
+                                <input type="text" id="address" style={{fontSize:"14px"}} class="form-control" placeholder="1234 Main St" value={user.address} />
                             </div>
 
                             {/* <!--address-2--> */}
                             <div class="md-form mb-5">
                                 <label for="address-2" class="">Address 2 (optional)</label>
-                                <input type="text" id="address-2" class="form-control" placeholder="Apartment or suite" />
+                                <input style={{fontSize:"14px"}} type="text" id="address-2" class="form-control" placeholder="Apartment or suite" />
                             </div>
 
                             {/* <!--Grid row--> */}
@@ -94,9 +137,9 @@ const Checkout=()=>{
                                 <div class="col-lg-4 col-md-12 mb-4">
 
                                     <label for="country">Country</label>
-                                    <select class="custom-select d-block w-100" id="country" required>
+                                    <select style={{fontSize:"14px"}} class="custom-select d-block w-100" id="country" required>
                     <option value="">Choose...</option>
-                    <option>United States</option>
+                    <option>Pakistan</option>
                   </select>
                                     <div class="invalid-feedback">
                                         Please select a valid country.
@@ -109,9 +152,9 @@ const Checkout=()=>{
                                 <div class="col-lg-4 col-md-6 mb-4">
 
                                     <label for="state">State</label>
-                                    <select class="custom-select d-block w-100" id="state" required>
+                                    <select style={{fontSize:"14px"}} class="custom-select d-block w-100" id="state" required>
                     <option value="">Choose...</option>
-                    <option>California</option>
+                    <option>Karachi</option>
                   </select>
                                     <div class="invalid-feedback">
                                         Please provide a valid state.
@@ -124,7 +167,7 @@ const Checkout=()=>{
                                 <div class="col-lg-4 col-md-6 mb-4">
 
                                     <label for="zip">Zip</label>
-                                    <input type="text" class="form-control" id="zip" placeholder="" required />
+                                    <input style={{fontSize:"14px"}} type="text" class="form-control" id="zip" placeholder="" required />
                                     <div class="invalid-feedback">
                                         Zip code required.
                                     </div>
@@ -141,15 +184,25 @@ const Checkout=()=>{
 
                             <div class="col-lg-4 col-md-6 mb-4">
                                 <label>Payment</label>
-                                <div  class="custom-control custom-radio" style={{minWidth:"220%",border:"1px solid gray",padding:"10px",marginLeft:"10px"}}>
+                                <div    class="custom-control custom-radio" style={{minWidth:"220%",border:"1px solid gray",padding:"10px",marginLeft:"10px"}}>
                                     {/* <h4>Credit / Debit Card</h4> */}
-                                    <input style={{marginLeft:"50px"}} id="debit" name="paymentMethod" type="radio" className="custom-control-input" required />
-                                    <label style={{marginLeft:"-10px"}} class="custom-control-label pl-3" for="debit">Credit / Debit Card</label> 
+                                    <input onChange={(e)=> setDebit((e.target.checked))} style={{marginLeft:"50px"}} id="debit" name="paymentMethod" type="radio" className="custom-control-input" required />
+                                    <label style={{marginLeft:"-10px"}} class="custom-control-label pl-3" for="debit"><div>
+                                        <div>Credit / Debit Card</div>
+                                        {debit ? <div style={{marginLeft:"20px",padding:"15px 30px"}}> <Paypal /> </div> : <div/>}
+                                        </div>
+                                        </label> 
+                                    
                                 </div>
                                 <br />
 
-                                <div  class="custom-control custom-radio" style={{minWidth:"220%",border:"1px solid gray",padding:"10px",marginLeft:"10px"}}>
-                                <input id="cash" name="paymentMethod" type="radio" className="custom-control-input" required />
+                                <div   class="custom-control custom-radio" style={{minWidth:"220%",border:"1px solid gray",padding:"10px",marginLeft:"10px"}}>
+                                <input id="cash" onChange={(e)=>{
+                                    setCash((e.target.checked))
+                                    
+                                    setDebit(false)
+                                
+                                } }   name="paymentMethod" type="radio"   className="custom-control-input" required />
                                 <label style={{marginLeft:"-10px"}} class="custom-control-label pl-3 text-muted" for="cash">
                                    
                                     <h4 className="text-muted" style={{marginTop:"-5px"}}>Cash</h4>
@@ -165,7 +218,7 @@ const Checkout=()=>{
 
                            
                             <hr class="mb-4" />
-                            <button class="btn btn-primary btn-lg btn-block"  >Place Order</button>
+                            <button class="btn btn-primary btn-lg btn-block" style={{fontSize:"14px"}} >Place Order</button>
 
                         </form>
 
@@ -185,6 +238,7 @@ const Checkout=()=>{
 </h4>
 
 
+
 <ul class="list-group mb-3 z-depth-1">
     {
         shoppingCart.map(cart => {
@@ -195,7 +249,7 @@ const Checkout=()=>{
             
             <h6 class="my-0">{cart.name}</h6>
             <small class="text-muted" style={{fontSize:"12px"}}>Price</small>
-        <span class="text-muted" style={{marginLeft:"115px"}}>${cart.price}</span>
+        <span class="text-muted" style={{marginLeft:"115px"}}>Rs {cart.price}</span>
         <br />
         <small class="text-muted" style={{fontSize:"12px"}}>Quantity</small>
         <span class="text-muted" style={{marginLeft:"115px",textAlign:"end"}}>{cart.qty}</span>
@@ -210,19 +264,11 @@ const Checkout=()=>{
     }
     <li class="list-group-item d-flex justify-content-between">
         <span>Total (USD)</span>
-        <strong>${totalPrice}</strong>
+        <strong>Rs {totalPrice}</strong>
     </li>
  
 </ul>
 
-<form class="card p-2">
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="Promo code" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-        <div class="input-group-append">
-            <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
-        </div>
-    </div>
-</form>
 </div>
 :
 <div />

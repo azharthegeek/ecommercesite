@@ -20,7 +20,7 @@ const Computer=()=>{
         })
         .catch(err => console.log(err))
     },[])
-    const res=data.filter(obj => obj.category==="Computer" )
+    const res=data.filter(obj => obj.category==="PC" )
     // console.log(res)
     const handleParams=(obj)=>{
         const option={
@@ -46,7 +46,7 @@ const Computer=()=>{
 :
 res.map(data => {
     return(
-<div class="col-lg-3 col-md-6 mb-4" style={{cursor:"pointer"}} onClick={()=>{handleParams(data)}}>
+<div class="col-lg-3 col-md-6 mb-4" style={{cursor:"pointer",maxWidth:"300px",height:"350px"}} onClick={()=>{handleParams(data)}}>
 
 
 <div class="card">
@@ -65,8 +65,8 @@ res.map(data => {
 </a>
 <h5>
 <strong>
-<a href="./product-page.html" class="dark-grey-text">{data.name}
-<span class="badge badge-pill danger-color">NEW</span>
+<a style={{fontSize:"16px"}} class="dark-grey-text">{data.name}
+<span style={{backgroundColor:"red"}} class="badge badge-pill danger-color">NEW</span>
 </a>
 </strong>
 </h5>

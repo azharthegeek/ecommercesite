@@ -76,7 +76,7 @@ function CustomizedMenus() {
               color="primary"
               onClick={handleClick}
             >
-             {a ? a.name : <div />}  <ExpandMoreOutlined />
+             {a ? <span style={{fontSize:"12px"}}>{a.name}</span> : <div />}  <ExpandMoreOutlined />
             </div>
             <StyledMenu
               id="customized-menu"
@@ -87,57 +87,40 @@ function CustomizedMenus() {
             >
               
              
+              <StyledMenuItem  style={{padding:"15px",fontSize:"22px"}}>
+              <ListItemIcon>
+                  <LibraryBooksIcon color="#002f34" fontSize="Large" />
+                </ListItemIcon>
+                <ListItemText style={{marginLeft:"-22px" ,color:"#002f34",fontSize:"16px"}} primary="My orders" onClick={() => history.push("/myorders") } />
+              </StyledMenuItem>
+             
+
+          
+              <hr style={{marginTop:"-5px"}} />
+              <div style={{marginTop:"-20px"}}>
       
-              <StyledMenuItem>
+              <StyledMenuItem style={{padding:"15px",fontSize:"22px"}}>
               <ListItemIcon>
-                  <LibraryBooksIcon color="#002f34" fontSize="small" />
+                  <HelpOutlineIcon color="#002f34" fontSize="Large" />
                 </ListItemIcon>
-                <ListItemText style={{marginLeft:"-22px" ,color:"#002f34"}} primary="My Ads" onClick={() => history.push("/myAds") } />
+                <ListItemText style={{marginLeft:"-22px" ,color:"#002f34"}} primary="Cart" />
               </StyledMenuItem>
-              <StyledMenuItem>
+              <hr style={{marginTop:"-5px"}} />
+              <div style={{marginTop:"-20px"}}></div>
+              <StyledMenuItem style={{padding:"15px",fontSize:"22px"}}>
               <ListItemIcon>
-                  <BusinessIcon color="#002f34" fontSize="small" />
+                  <TuneIcon color="#002f34" fontSize="Large" />
                 </ListItemIcon>
-                <ListItemText style={{marginLeft:"-22px" ,color:"#002f34"}} primary="Buy Bussiness Packages" />
+                <ListItemText style={{marginLeft:"-22px" ,color:"#002f34"}} primary="About Us" />
               </StyledMenuItem>
+              </div>
+              <hr style={{marginTop:"-5px"}} />
               
-              <StyledMenuItem>
-              <ListItemIcon>
-                  <GradientIcon color="#002f34" fontSize="small" />
-                </ListItemIcon>
-                <ListItemText style={{marginLeft:"-22px" ,color:"#002f34"}} primary="Bought Packages & Billing" />
-              </StyledMenuItem>
               <hr style={{marginTop:"-5px"}} />
               <div style={{marginTop:"-20px"}}>
-      
-              <StyledMenuItem>
+              <StyledMenuItem style={{padding:"15px",fontSize:"22px"}}>
               <ListItemIcon>
-                  <HelpOutlineIcon color="#002f34" fontSize="small" />
-                </ListItemIcon>
-                <ListItemText style={{marginLeft:"-22px" ,color:"#002f34"}} primary="Help" />
-              </StyledMenuItem>
-              <StyledMenuItem>
-              <ListItemIcon>
-                  <TuneIcon color="#002f34" fontSize="small" />
-                </ListItemIcon>
-                <ListItemText style={{marginLeft:"-22px" ,color:"#002f34"}} primary="Settings" />
-              </StyledMenuItem>
-              </div>
-              <hr style={{marginTop:"-5px"}} />
-              <div style={{marginTop:"-20px"}}>
-              <StyledMenuItem>
-              <ListItemIcon>
-                  <GetAppOutlinedIcon color="#002f34" fontSize="small" />
-                </ListItemIcon>
-                <ListItemText style={{marginLeft:"-22px" ,color:"#002f34"}} primary="Install OLX Lite app"/>
-              </StyledMenuItem>
-      
-              </div>
-              <hr style={{marginTop:"-5px"}} />
-              <div style={{marginTop:"-20px"}}>
-              <StyledMenuItem>
-              <ListItemIcon>
-                  <ExitToAppIcon color="#002f34" fontSize="small" />
+                  <ExitToAppIcon color="#002f34" fontSize="Large" />
                 </ListItemIcon>
                 <ListItemText style={{marginLeft:"-22px" ,color:"#002f34"}} primary="Logout" onClick={() => {
                   

@@ -43,18 +43,16 @@ const Login=()=>{
   }
     return(
         <>
-         <div>
-            <div style={{display:"flex",justifyContent:"space-evenly"}}>
-                <div className="logoImg" >
-                    <img src={logo} className="img-fluid" style={{height:"630px"}} />
-                    
-                </div>
-                <div style={{marginTop:"60px",display:"flex",flexDirection:"column"}}>
+         <div class="loginMain">
+            <div style={{display:"flex",justifyContent:"center"}}>
+             
+                <div className="lginComp">
                     <div>
-                    <Paper variant="outlined" square elevation={20} style={{width:"400px",height:"390px",backgroundColor:"rgb(255, 255, 255)",borderBottomColor:"rgb(219, 219, 219)"}}>
+                    <Paper variant="outlined" square elevation={20} style={{width:"300px",height:"290px",backgroundColor:"rgb(255, 255, 255)",borderBottomColor:"rgb(219, 219, 219)"}}>
                    <div>
                        <div>
                            <div style={{display:"flex",justifyContent:"center",alignItems:"center",marginTop:"20px"}}>
+                          
                                <div style={{fontFamily: "'Grand Hotel', cursive",color:"#2196f3",letterSpacing:"1px",fontSize:"36px"}}>TechShoor Store</div>
                            </div>
                        </div>
@@ -118,18 +116,18 @@ const Login=()=>{
       
                          
  </div>
-                <div style={{textAlign:"center",color:"gray",marginTop:"20px"}}>
+                {/* <div style={{textAlign:"center",color:"gray",marginTop:"20px"}}>
                     <span>_____________</span>
                     <span>OR</span>
                     <span>_____________</span>
 
-                </div>
-                <div>
+                </div> */}
+                {/* <div>
                     <span style={{fontWeight:"900",color:"blue",marginTop:"20px",display:"flex",justifyContent:"center"}}>Login with Facebook</span>
                 </div>
                 <div>
                     <span style={{fontSize:"12px",color:"#00376B",marginTop:"20px",display:"flex",justifyContent:"center"}}>Forgot password</span>
-                </div>
+                </div> */}
                
                 </Paper>
                     </div>
@@ -145,16 +143,16 @@ const Login=()=>{
                 </Paper>
             </div>
             <Snackbar open={err} autoHideDuration={6000} >
-                    <Alert severity="error">{error}</Alert>   
+                    <Alert severity="error" style={{fontSize:"12px"}}>{error}</Alert>   
                     </Snackbar>
 
-                    <div >
+                    {/* <div >
                         <div style={{textAlign:"center",marginTop:"5px",fontWeight:"500"}}>Get  the app</div>
                         <div style={{display:"flex",justifyContent:"center",marginTop:"8px"}}>
                         <div ><img style={{marginRight:"5px"}} width="150" src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/180ae7a0bcf7.png" /></div>
                             <div><img width="150" src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_english-en.png/e9cd846dc748.png" /></div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 
 

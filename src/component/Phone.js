@@ -7,10 +7,10 @@ import Footer from './Footer';
 import Slider from './Slider';
 import Category from './Category';
 import { useHistory } from 'react-router-dom';
-const Laptop=()=>{
+const Phone=()=>{
     let history=useHistory()
     let [data,setData]=useState([])
-    let [laptop,setLaptop]=useState([])
+  
     useEffect(()=>{
         fetch('http://localhost:5000/products')
         .then(res => res.json())
@@ -19,7 +19,7 @@ const Laptop=()=>{
         })
         .catch(err => console.log(err))
     },[])
-    const res=data.filter(obj => obj.category==="Laptop" )
+    const res=data.filter(obj => obj.category==="Phone" )
     const handleParams=(obj)=>{
         const option={
             pathname:`/product/${obj.id}`,
@@ -34,8 +34,8 @@ const Laptop=()=>{
         <Slider />
         <Category />
         <br />
-        <br />
-        <br />
+        
+        
 <div class="container text-center mb-4">
 
 <div class="row wow fadeIn">
@@ -44,7 +44,7 @@ const Laptop=()=>{
 :
 res.map(data => {
     return(
-<div class="col-lg-3 col-md-6 mb-4" style={{cursor:"pointer",maxWidth:"300px",height:"350px"}} onClick={()=>{handleParams(data)}}>
+<div class="col-lg-3 col-md-6 mb-4" style={{cursor:"pointer",maxWidth:"300px",height:"370px"}} onClick={()=>{handleParams(data)}}>
 
 
 <div class="card">
@@ -63,8 +63,8 @@ res.map(data => {
 </a>
 <h5>
 <strong>
-<a style={{fontSize:"16px"}} class="dark-grey-text">{data.name}
-<span class="badge badge-pill danger-color" style={{backgroundColor:"red"}}>NEW</span>
+<a style={{fontSize:"14px"}} class="dark-grey-text">{data.name}
+<span style={{backgroundColor:"red"}} class="badge badge-pill danger-color">NEW</span>
 </a>
 </strong>
 </h5>
@@ -94,4 +94,4 @@ res.map(data => {
     )
 }
 
-export default Laptop
+export default Phone;

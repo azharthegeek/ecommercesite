@@ -7,6 +7,16 @@ const {JWT_SECRET}=require('../key')
 const bcrypt=require('bcrypt')
 const requiredLogin=require('../middleware/requiredLogin')
 const Order=mongoose.model("Order")
+const nodemailer=require("nodemailer")
+
+// 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
+
+
+// const transporter=nodemailer.createTransport(sendgridTransport({
+//     auth:{
+//         api_key:"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"
+//     }
+// }))
 
 router.get('/protected',requiredLogin,(req,res)=>{
     res.send("Arham SSP")
@@ -50,6 +60,7 @@ router.post('/signup',(req,res)=>{
     
 })
 
+
 router.post('/signin',(req,res)=>{
     const {email , password}=req.body
     if(!email || !password){
@@ -71,36 +82,66 @@ router.post('/signin',(req,res)=>{
             else{
             return res.status(404).json({error:"Invalid email and password"})
 
-            }
-        })
-        .catch(err =>{
-            console.log(err)
-        })
+        }
     })
     .catch(err =>{
         console.log(err)
     })
 })
-
+.catch(err =>{
+    console.log(err)
+})
+})
 router.post('/order',requiredLogin  ,(req,res)=>{
   var product=Object.values(req.body)
   const post=new Order({
       shoppingCart:product,
-      orderBy:req.user
+      orderBy:req.user,
+      createdAt:new Date()
   })
   post.save()
-  .then(data => res.json({data}))
+  .then(data =>{ 
+    // Step 1
+    let transport=nodemailer.createTransport ({
+        service:'gmail',
+        auth:{
+            user:'techshoor@gmail.com',
+            pass:'Tcc#5430An.'
+        }
+    });
+    let mailOption={
+        from:'techshoor@gmail.com',
+        to:req.user.email,
+        subject:'Your Order has been Placed Successfully',
+        html:`<h3>Your Order Details</h3> <p>Hi ${req.user.name}</p> <p>Great Choice.Your Order will be delivered to you within an hour.</p> <p>If you have any questions, feel free to contact us at any time via email at techshoor@gmail.com.</p>`
+    };
+    transport.sendMail(mailOption,function(err,data){
+        if(err){
+            console.log("Error occurs",err)
+        }else{
+            console.log("Email Sent!!!")
+        }
+    })
+    res.send([data.shoppingCart,data._id,data.createdAt])
+    
+    // res.json({shopping:data.shoppingCart,id:data._id,createdAt:data.createdAt})
+    
+    })
   .catch(err => console.log(err))
 
 })
 
 router.get('/myorders',requiredLogin,(req,res)=>{
     Order.find({orderBy:req.user._id})
+    // .populate(" _id")
     .then(mypost=>{
         res.json({mypost})
     })
     .catch(err => console.log(err))
 
 })
+
+
+
 
 module.exports=router

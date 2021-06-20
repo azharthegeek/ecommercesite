@@ -10,7 +10,7 @@ const Category=()=>{
 <nav  class="navbar navbar-expand-lg navbar-light  mt-3 mb-5" style={{backgroundColor:"#929fba",color:"#fff"}}>
 
    
-    <span class="navbar-brand">Categories:</span>
+    <span class="navbar-brand font-weight-bolder" style={{fontSize:"14px"}}>Categories:</span>
 
    
     <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,17 +34,13 @@ const Category=()=>{
             <Link class="nav-link" to="/computer">PC</Link>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Phone</a>
+            <Link class="nav-link" to="/phone">Phone</Link>
             </li>
 
         </ul>
        
 
-        <form class="form-inline">
-            <div class="md-form my-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            </div>
-        </form>
+        
     </div>
   
 

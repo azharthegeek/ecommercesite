@@ -1,8 +1,4 @@
 import React , {useContext} from 'react';
-
-import first from '../component/images/11.jpg'
-import second from '../component/images/22.jpg'
-import third from '../component/images/33.jpg'
 import Menu from '../component/Menu';
 import Footer from '../component/Footer'
 import { useHistory } from 'react-router';
@@ -42,26 +38,26 @@ const Product=()=>{
 
                         <div class="mb-3">
                             <a href="">
-                                <span class="badge purple mr-1" style={{backgroundColor:"purple",color:"#fff"}}>Category 2</span>
+                                <span class="badge purple mr-1" style={{backgroundColor:"purple",color:"#fff"}}>Safe</span>
                             </a>
                             <a href="">
-                                <span class="badge blue mr-1" style={{backgroundColor:"blue",color:"#fff"}} >New</span>
+                                <span class="badge blue mr-1" style={{backgroundColor:"blue",color:"#fff"}} >Secure</span>
                             </a>
                             <a href="">
-                                <span class="badge red mr-1" style={{backgroundColor:"red",color:"#fff"}}>Bestseller</span>
+                                <span class="badge red mr-1" style={{backgroundColor:"red",color:"#fff"}}>Authantic</span>
                             </a>
                         </div>
 
                         <p class="lead">
                             <span class="mr-1">
-                <del>Rs 300,000</del>
+                
               </span>
-                            <span>Rs {state.price}</span>
+                            <span style={{fontSize:"16px"}}>Rs {state.price}</span>
                         </p>
 
-                        <p class="lead font-weight-bold">Description of {state.id}</p>
+                        <p class="lead font-weight-bold">Description</p>
 
-                        <p>iPhone 12 Pro Max standing as the larger of the two pro-level models. This device has a bigger 6.7-inch Super Retina XDR display compared to the iPhone 11 Pro Max. It also has a triple-camera system and LiDAR</p>
+                        <p>{state.info}</p>
 
                         <div class="d-flex justify-content-left"  onClick={()=> dispatch({
                             type:"ADD TO CART",
@@ -72,7 +68,7 @@ const Product=()=>{
                         })} >
                             {/* <!-- Default input --> */}
                             
-                            <button style={{width:"500px"}} class="btn btn-primary btn-md my-0 p ml-0 mt-2"   >Add to cart
+                            <button style={{width:"500px",fontSize:'14px'}} class="btn btn-primary btn-md my-0 p ml-0 mt-2"   >Add to cart
                 <i class="fas fa-shopping-cart ml-1"></i>
               </button>
 
@@ -99,9 +95,10 @@ const Product=()=>{
 
 <div class="col-md-6 text-center">
 
-    <h4 class="my-4 h4">Additional information</h4>
+    <h4 class="my-4 h4 " style={{fontWeight:"bolder"}}>Additional information</h4>
 
-    <p> The phone is powered by the new Apple A14 Bionic processor. The smartphone comes with a 6.7 inches Super Retina XDR OLED capacitive touchscreen, 2778 x 1284 pixels resolution and HDR display, True Tone and Wide color (P3) gamut.</p>
+
+    <p>{state.description} </p>
 
 </div>
 
@@ -115,14 +112,14 @@ const Product=()=>{
 
 <div class="col-lg-4 col-md-12 mb-4">
 
-    <img src={first} class="img-fluid" alt="" />
+    <img src={state.photo1} class="img-fluid" alt="" />
 
 </div>
 
 
 <div class="col-lg-6 col-md-6 mb-4 text-center">
 
-    <img src={second} class="img-fluid" alt="" width="300" height="200" />
+    <img src={state.photo2} class="img-fluid" alt="" width="300" height="200" />
 
 </div>
 
@@ -130,7 +127,7 @@ const Product=()=>{
 
 <div class="col-lg-6 col-md-6 mb-4">
 
-    <img src={third} class="img-fluid" width="300" height="300" alt="" />
+    <img src={state.photo3} class="img-fluid" width="300" height="300" alt="" />
 
 </div>
 
