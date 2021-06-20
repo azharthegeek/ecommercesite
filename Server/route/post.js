@@ -142,6 +142,30 @@ router.get('/myorders',requiredLogin,(req,res)=>{
 })
 
 
+router.post('/contact',requiredLogin,(req,res)=>{
+    const {email , message}=req.body
+    let transport=nodemailer.createTransport ({
+        service:'gmail',
+        auth:{
+            user:'techshoor@gmail.com',
+            pass:'Tcc#5430An.'
+        }
+    });
+    let mailOption={
+        from:email,
+        to:'techshoor@gmail.com',
+        subject:'Your Have a New Message',
+        html:`<p>Hi TechShoor Store</p> <p>${message}</p><br /> <p>From ${email}</p>`
+    };
+    transport.sendMail(mailOption,function(err,data){
+        if(err){
+            console.log("Error occurs",err)
+        }else{
+            console.log("Email Sent!!!")
+        }
+    })
 
+    res.send("Okk")
+})
 
 module.exports=router

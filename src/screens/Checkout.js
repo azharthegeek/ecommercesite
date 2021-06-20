@@ -46,7 +46,7 @@ const onApprove=(data,actions)=>{
             method:"Post",
             headers:{
                 "Content-Type":"application/json",
-                "Authorization":`Bearer Rs{localStorage.getItem("jwt")}`
+                "Authorization":`Bearer Rs {localStorage.getItem("jwt")}`
             },
             body:JSON.stringify({
                 shoppingCart

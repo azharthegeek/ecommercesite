@@ -109,7 +109,7 @@ const data=[
         category:"Laptop",
         name:"Dell Latitude 3340",
         price:155000,
-        photo:"https://https://github.com/AZHARTHEGEEK/ecommercesite/blob/main/product%20images/Dell%20Latitude%203340%20-13.3%20LED%20Display%20-%20Core%20i3%204th%20Gen%20(4005U)%20-%204GB%20RAM%20-%20500GB%20HDD%20-%20Windows%2010%20(Activated)/dell%20latitude%20(3).jpeg?raw=trued.techshoor.com/img/iphone-12-pro-max-family-hero-all.jpg",
+        photo: "https://github.com/AZHARTHEGEEK/ecommercesite/blob/main/product%20images/Dell%20Latitude%203340%20-13.3%20LED%20Display%20-%20Core%20i3%204th%20Gen%20(4005U)%20-%204GB%20RAM%20-%20500GB%20HDD%20-%20Windows%2010%20(Activated)/dell%20latitude%20(2).jpeg?raw=true",
         photo1: "https://github.com/AZHARTHEGEEK/ecommercesite/blob/main/product%20images/Dell%20Latitude%203340%20-13.3%20LED%20Display%20-%20Core%20i3%204th%20Gen%20(4005U)%20-%204GB%20RAM%20-%20500GB%20HDD%20-%20Windows%2010%20(Activated)/dell%20latitude%20(4).jpeg?raw=true",
         photo2: "https://github.com/AZHARTHEGEEK/ecommercesite/blob/main/product%20images/Dell%20Latitude%203340%20-13.3%20LED%20Display%20-%20Core%20i3%204th%20Gen%20(4005U)%20-%204GB%20RAM%20-%20500GB%20HDD%20-%20Windows%2010%20(Activated)/dell%20latitude%20(2).jpeg?raw=true",
         photo3: "https://github.com/AZHARTHEGEEK/ecommercesite/blob/main/product%20images/Dell%20Latitude%203340%20-13.3%20LED%20Display%20-%20Core%20i3%204th%20Gen%20(4005U)%20-%204GB%20RAM%20-%20500GB%20HDD%20-%20Windows%2010%20(Activated)/dell%20latitude%20(1).jpeg?raw=true",

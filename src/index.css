@@ -84,10 +84,11 @@ code {
   background-size: cover;
 }
 .lginComp{
-  background-color: orange;
+  /* background-color: orange; */
   margin-top: 150px;
   margin-left: 250px;
 }
+
 
 .contact3 {
   font-family: "Montserrat", sans-serif;

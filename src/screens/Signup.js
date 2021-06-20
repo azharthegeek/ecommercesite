@@ -8,6 +8,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 import { useHistory } from 'react-router';
 import Loading from '../component/Spinner';
+import Logo from '../images/logo.png';
 
 const Signup=()=>{
     let history=useHistory()
@@ -62,23 +63,28 @@ const Signup=()=>{
    
     return(
         <>
+     
         <Menu />
         <br />
         {/* <br /> */}
-        <div style={{ width: "100%", height: "100%", display: "flex", justifyContent: "center", marginTop: "30px" }}>
+        <div  style={{ width: "100%", height: "100%", display: "flex", justifyContent: "center", marginTop: "10px",marginBottom:"85px" }}>
 
 
 <div style={{ backgroundColor: "#FAFAFA", width: "350px", height: "500px", display: "flex", flexDirection: "column" }}>
     <Paper variant="outlined" square elevation={20} >
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "13px" }}>
-            <div style={{ fontFamily: "'Grand Hotel', cursive", color: "#262626", letterSpacing: "1px", fontSize: "40px", fontWeight: "500",color:"#2196F3"  }}>TechShoor Store</div>
+            <img src={Logo} />
         </div>
         <div style={{ textAlign: "center", marginTop: "5px" }}>
             <div style={{ color: "#8E8E8E", fontWeight: "700", fontSize: "16px" }}>Sign up to see products and</div>
             <div style={{ color: "#8E8E8E", fontWeight: "700", fontSize: "16px" }}> share with your friends</div>
         </div>
-        <div style={{ textAlign: "center", marginTop: "8px" }}>
-           
+        
+        <div style={{ textAlign: "center", color: "gray", marginTop: "10px" }}>
+            <span >  _____________  </span>
+            <span >OR</span>
+            <span >   _____________  </span>
+
         </div>
         <div style={{ textAlign: "center", padding: "17px 48px" }}>
             <Form >
@@ -146,7 +152,10 @@ const Signup=()=>{
                 <span style={{ fontSize: "14px", textTransform: "capitalize" }} onClick={postData}>Signup</span>
             </Button>
         </div>
-        
+        <div style={{ textAlign: "center", marginTop: "7px" }}>
+            <div style={{ color: "#8E8E8E", fontSize: "12px" }}>By signing up, you agree to our,<b>Terms</b> , <b>Data</b></div>
+            <div style={{ color: "#8E8E8E", fontSize: "11px" }}><b>Policy </b> and <b>Cookies Policy </b></div>
+        </div>
 
     </Paper>
     <div >
@@ -185,8 +194,10 @@ const Signup=()=>{
 
 
 
+
+
 </div>
-<div style={{marginTop:"150px"}}> 
+<div > 
 
 
 <Footer />

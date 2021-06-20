@@ -87,6 +87,7 @@ function CustomizedMenus() {
             >
               
              
+      
               <StyledMenuItem  style={{padding:"15px",fontSize:"22px"}}>
               <ListItemIcon>
                   <LibraryBooksIcon color="#002f34" fontSize="Large" />
@@ -96,26 +97,19 @@ function CustomizedMenus() {
              
 
           
-              <hr style={{marginTop:"-5px"}} />
-              <div style={{marginTop:"-20px"}}>
-      
-              <StyledMenuItem style={{padding:"15px",fontSize:"22px"}}>
-              <ListItemIcon>
-                  <HelpOutlineIcon color="#002f34" fontSize="Large" />
-                </ListItemIcon>
-                <ListItemText style={{marginLeft:"-22px" ,color:"#002f34"}} primary="Cart" />
-              </StyledMenuItem>
-              <hr style={{marginTop:"-5px"}} />
-              <div style={{marginTop:"-20px"}}></div>
-              <StyledMenuItem style={{padding:"15px",fontSize:"22px"}}>
-              <ListItemIcon>
-                  <TuneIcon color="#002f34" fontSize="Large" />
-                </ListItemIcon>
-                <ListItemText style={{marginLeft:"-22px" ,color:"#002f34"}} primary="About Us" />
-              </StyledMenuItem>
-              </div>
-              <hr style={{marginTop:"-5px"}} />
               
+              <div >
+      
+              
+              
+              <div ></div>
+              
+              </div>
+              
+              <div >
+              
+      
+              </div>
               <hr style={{marginTop:"-5px"}} />
               <div style={{marginTop:"-20px"}}>
               <StyledMenuItem style={{padding:"15px",fontSize:"22px"}}>

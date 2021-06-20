@@ -41,7 +41,7 @@ const Product=()=>{
                                 <span class="badge purple mr-1" style={{backgroundColor:"purple",color:"#fff"}}>Safe</span>
                             </a>
                             <a href="">
-                                <span class="badge blue mr-1" style={{backgroundColor:"blue",color:"#fff"}} >Secure</span>
+                                <span class="badge blue mr-1" style={{backgroundColor:"blue",color:"#fff"}} >Fast</span>
                             </a>
                             <a href="">
                                 <span class="badge red mr-1" style={{backgroundColor:"red",color:"#fff"}}>Authantic</span>
@@ -50,7 +50,7 @@ const Product=()=>{
 
                         <p class="lead">
                             <span class="mr-1">
-                
+            
               </span>
                             <span style={{fontSize:"16px"}}>Rs {state.price}</span>
                         </p>

@@ -7,6 +7,7 @@ import { useHistory } from 'react-router';
 import { useState } from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
+import tech from '../images/logo.png'
 
 const Login=()=>{
   let history=useHistory()
@@ -43,17 +44,16 @@ const Login=()=>{
   }
     return(
         <>
-         <div class="loginMain">
-            <div style={{display:"flex",justifyContent:"center"}}>
+         <div class="loginMain text-center align-content-center">
+            <div style={{display:"flex",justifyContent:"space-evenly"}}>
              
                 <div className="lginComp">
                     <div>
                     <Paper variant="outlined" square elevation={20} style={{width:"300px",height:"290px",backgroundColor:"rgb(255, 255, 255)",borderBottomColor:"rgb(219, 219, 219)"}}>
                    <div>
                        <div>
-                           <div style={{display:"flex",justifyContent:"center",alignItems:"center",marginTop:"20px"}}>
-                          
-                               <div style={{fontFamily: "'Grand Hotel', cursive",color:"#2196f3",letterSpacing:"1px",fontSize:"36px"}}>TechShoor Store</div>
+                           <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                              <img src={tech} />
                            </div>
                        </div>
                       </div>

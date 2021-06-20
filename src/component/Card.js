@@ -14,7 +14,7 @@ const Card=()=>{
     let history=useHistory()
     const handleParams=(obj)=>{
         const option={
-            pathname:`/product/${obj.id}`,
+            pathname:`/product/Rs{obj.id}`,
             state:obj
         }
         history.push(option)

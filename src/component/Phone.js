@@ -64,7 +64,7 @@ res.map(data => {
 <h5>
 <strong>
 <a style={{fontSize:"14px"}} class="dark-grey-text">{data.name}
-<span style={{backgroundColor:"red"}} class="badge badge-pill danger-color">NEW</span>
+
 </a>
 </strong>
 </h5>

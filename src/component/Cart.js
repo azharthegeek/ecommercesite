@@ -84,7 +84,7 @@ const Cart=()=>{
                     </div>
                     <div className="total-price-section">
                         <div className="title">Total Price</div>
-                        <div className="items-price" >Rs {totalPrice}.00</div>
+                        <div className="items-price" >Rs{totalPrice}.00</div>
                     </div>
                         <Button variant="contained" size="large" color="primary" className="mt-3 ml-1" style={{fontSize:"12px"}} onClick={()=>{history.push('/checkout')}}>Go to Checkout</Button>
                 </div>

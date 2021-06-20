@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Menu from '../component/Menu';
 import Footer from '../component/Footer';
 import Cover from '../images/cover.png'
+import { useHistory } from 'react-router-dom';
 
 const About=()=>{
+  let [email,setEmail]=useState("")
+  let [message,setMessage]=useState("")
+  let history=useHistory()
+  const Mailer=(e)=>{
+   e.preventDefault();
+   fetch('http://localhost:5000/contact',{
+     method:"Post",
+     headers:{
+       'Content-Type':'application/json',
+       "Authorization":`Bearer Rs{localStorage.getItem("jwt")}`
+     },
+     body:JSON.stringify({
+       email,
+       message
+     })
+   })
+   .then(res => res.json() )
+   .then(res => console.log(res) )
+   .catch(err => console.log(err))
+
+   history.push('/')
+  
+  }
+  
     return(
         <>
         <Menu />
@@ -20,30 +45,30 @@ const About=()=>{
         <div class="col-lg-6">
           <div class="contact-box ml-3">
             <h1 class="font-weight-light mt-2">Quick Contact</h1>
-            <form class="mt-4">
+            <form class="mt-4" onSubmit={Mailer} >
               <div class="row">
                 <div class="col-lg-12">
                   <div class="form-group mt-2">
-                    <input style={{fontSize:"14px"}} class="form-control" type="text" placeholder="name" />
+                    <input required style={{fontSize:"14px"}} class="form-control" type="text" name="name" placeholder="name" />
                   </div>
                 </div>
                 <div class="col-lg-12">
                   <div class="form-group mt-2">
-                    <input style={{fontSize:"14px"}} class="form-control" type="email" placeholder="email address" />
+                    <input required style={{fontSize:"14px"}} class="form-control" type="email" onChange={(e)=>{setEmail(e.target.value)}} name="user-email" placeholder="email address" />
                   </div>
                 </div>
                 <div class="col-lg-12">
                   <div class="form-group mt-2">
-                    <input class="form-control" style={{fontSize:"14px"}} type="text" placeholder="phone" />
+                    <input required class="form-control" style={{fontSize:"14px"}} type="text" placeholder="phone" />
                   </div>
                 </div>
                 <div class="col-lg-12">
                   <div class="form-group mt-2">
-                    <textarea class="form-control" rows="3" style={{fontSize:"14px"}} placeholder="message"></textarea>
+                    <textarea required class="form-control" rows="3" style={{fontSize:"14px"}} placeholder="message" name="message"onChange={(e)=>{setMessage(e.target.value)}}></textarea>
                   </div>
                 </div>
                 <div class="col-lg-12">
-                  <button type="submit" class="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2"><span> SUBMIT</span></button>
+                  <button type="submit"  class="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2 "><span> SUBMIT</span></button>
                 </div>
               </div>
             </form>
@@ -59,8 +84,8 @@ const About=()=>{
                   </div>
                   <div class="">
                     <h6 class="font-weight-medium">Address</h6>
-                    <p class="">71/1 Nazimabad Phase 1
-                      <br /> Karachi Pakistan.</p>
+                    <p class="">71/1 Phase 1 
+                      <br /> Nazimabad karachi</p>
                   </div>
                 </div>
               </div>
@@ -71,8 +96,8 @@ const About=()=>{
                   </div>
                   <div class="">
                     <h6 class="font-weight-medium">Phone</h6>
-                    <p class="">+92 301 000 1547
-                      <br /> +92 312 000 1547</p>
+                    <p class="">+92 312 000 1547
+                      <br />+92 324 296 0327</p>
                   </div>
                 </div>
               </div>
@@ -84,8 +109,8 @@ const About=()=>{
                   <div>
                     <h6 class="font-weight-medium">Email</h6>
                     <p class="">
-                      info@techshoor.com
-                      <br /> techshoor@gmail.com
+                      techshoor@gmail.com
+                      <br /> info@techshoor.store
                     </p>
                   </div>
                 </div>
